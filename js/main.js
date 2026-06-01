@@ -24,6 +24,7 @@ import Village from "./class.village.js";
  *    How? Find a way, or you will hang coming tuesday!
  *
  *    The royal servants - 980-06-01
+ *    maikypi
  *  *******************************************************/
 
 
