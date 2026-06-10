@@ -17,3 +17,68 @@
  *        resident remaining in the building.
  * - listAllResidents() for the Citizen Directory.
  */
+
+export default class Building {
+    constructor(name, capacity) {
+        this.name = name;
+        this.capacity = capacity;
+        this.residents = []; //Array of Citizens, living in this building.
+    }
+
+
+    addResident(citizen) {
+        if (this.residents.length < this.capacity) {  // Still some space
+            this.residents.push(citizen);
+            citizen.home = this.name;
+            return true;
+        } else {
+            return (this.makeSpaceFor(citizen));
+        }
+    }
+
+    removeResident(citizen) {
+        //TODO: if nobles!
+        this.residents.splice(this.residents.indexOf(citizen), 1); // delete entry from array
+        citizen.home = null;
+    }
+
+
+    findLowestResident() {
+        if (this.residents.length) {
+            let lowestResident = this.residents[0];
+
+            for (const resident of this.residents) {
+                if (resident.rank > lowestResident.rank)
+                    lowestResident = resident;
+            }
+
+            return lowestResident;
+        }
+    }
+
+
+    makeSpaceFor(citizen) {
+        let lowest = this.findLowestResident();
+
+        if (lowest && citizen.rank < lowest.rank) {
+            this.removeResident(lowest);
+            this.addResident(citizen);
+            return true;
+        }
+
+        return false;
+    }
+
+    listAllResidents() {
+        console.log(
+            "%cResidents people of " + this.name + ": " +
+            this.residents.length + "/" + this.capacity,
+            "background-color: yellow; color: black"
+        );
+
+        for (const citizen of this.residents) {
+            console.log(String(citizen));
+        }
+    }
+}
+
