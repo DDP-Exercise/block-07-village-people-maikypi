@@ -24,7 +24,7 @@ import Village from "./class.village.js";
  *    How? Find a way, or you will hang coming tuesday!
  *
  *    The royal servants - 980-06-01
- *    maikypi
+ *    maikypi - 2026-06-01
  *  *******************************************************/
 
 
@@ -32,6 +32,7 @@ import Village from "./class.village.js";
  * The King wants to test your program with his newest village: Steyr
  * Obviously, you should write a class, so we can create villages.
  * **/
+
 let steyr = new Village("Steyr");
 
 /**
@@ -44,6 +45,7 @@ let steyr = new Village("Steyr");
  * Noble Citizens, and Noble Citizens only!!!. In this test-case,
  * the "Rathaus" is such a nobles-only building.
  * **/
+
 steyr.addBuilding("Rathaus", 3, true); //3rd argument, "true", is for nobles-only buildings.
 steyr.addBuilding("Grünmarkt", 5);
 steyr.addBuilding("Bummerlhaus", 10);
@@ -90,12 +92,14 @@ for(const noble of nobles)
  *  Therefore, once, all the nobles are sheltered, we want to make sure, that all citizens who had to
  *  pack their stuff, will be redistributed to the other buildings, if their rank allows it.
  * **/
+
 steyr.shelterTheWorthy();
 
 /**
  *  Once, all the citizens are sheltered in the city, your programm should print a Citizen Directory.
  *  Find provided images in the img folder, to see what this should look like.
  *  **/
+
 steyr.printCitizenDirectory();
 
 
